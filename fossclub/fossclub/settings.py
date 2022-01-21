@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "users.User"
 
+USE_POSTGRES = os.getenv("USE_POSTGRES", False)
 
 # Application definition
 
@@ -76,11 +77,24 @@ WSGI_APPLICATION = "fossclub.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
+if USE_POSTGRES:
+    db_options = {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("PG_DBNAME", "fossclub_db"),
+        "USER": os.environ.get("PG_USER", "fossclub"),
+        "PASSWORD": os.environ.get("PG_PASSWORD", "fossclub"),
+        "HOST": os.environ.get("PG_HOST", "127.0.0.1"),
+        "PORT": os.environ.get("PG_PORT", "5432"),
+    }
+else:
+    # for local dev environments (sqlite is easier to setup on windows)
+    db_options = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
+
+DATABASES = {
+    "default": db_options,
 }
 
 
