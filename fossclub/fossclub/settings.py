@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,6 +32,7 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = "users.User"
 
 USE_POSTGRES = os.getenv("USE_POSTGRES", False)
+
 
 # Application definition
 
@@ -84,7 +87,7 @@ if USE_POSTGRES:
         "USER": os.environ.get("PG_USER", "fossclub"),
         "PASSWORD": os.environ.get("PG_PASSWORD", "fossclub"),
         "HOST": os.environ.get("PG_HOST", "127.0.0.1"),
-        "PORT": os.environ.get("PG_PORT", "5432"),
+        "PORT": int(os.environ.get("PG_PORT", 5432)),
     }
 else:
     # for local dev environments (sqlite is easier to setup on windows)
