@@ -37,13 +37,24 @@ USE_POSTGRES = os.getenv("USE_POSTGRES", False)
 # Application definition
 
 INSTALLED_APPS = [
+    # custom
     "users",
+
+    # django
     "django.contrib.admin",
     "django.contrib.auth",
+    "django.contrib.sites",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # third-party
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.gitlab",
 ]
 
 MIDDLEWARE = [
@@ -100,6 +111,10 @@ DATABASES = {
     "default": db_options,
 }
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,3 +156,29 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Email settings
+EMAIL_HOST = "localhost"
+EMAIL_HOST = "1025"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# allauth settings
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+
+ACCOUNT_PRESERVE_USERNAME_CASING = False
+
+SOCIALACCOUNT_EMAIL_VERIFICATION = False
+
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {}
+}
+
+SOCIALACCOUNT_STORE_TOKENS = True  # this will be needed for badges
+
+SITE_ID = 1
+
