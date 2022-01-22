@@ -1,9 +1,43 @@
-{# {% extends 'base.html' %} #}
+{% extends 'base.html' %}
+{% block extra_head %}
+{% load static %}
+    <link rel="stylesheet" href="{% static "perks/new_style.css" %}">        
+    <link rel="stylesheet" href="perks.css" />
+{% endblock %}
+
 
 {% block content %}
-    <ul>
+    <div class="main">
         {% for perk in perks %}
-        <li>{{ perk.name }}</li>
+
+        <div class="br-5 perk-container">
+            <div class="flex vertical-center mb-10 ml-10 perk-sponsor">
+                <img src="sponsorLogo.svg" alt="Sponsoro logo" class="sponsor-logo" />
+                <div class="ml-5 sponsor-name">Macrohard</div>
+            </div>
+            <img src="/media/{{ perk.image }}" class="perk-image" alt="Perk image">
+            <div class="perk-details">
+                <div class="mb-5 container">
+                    <h3 class="mb-3 heading--secondary">
+                        {{ perk.name }}
+                    </h3>
+                    <div class="normal-text">
+                        {{ perk.short_description }}
+                    </div>
+                </div>
+                <div class="mb-5 mt-20 container">
+                    <h3 class="mb-3 heading--secondary">Criteria to claim the perk</h3>
+                        <div class="badge-container" style="display: flex; flex-wrap: wrap; justify-content: space-around; margin: 20px;">
+                            {% for badge in perk.required_badges.all %}
+                            <div class="badge-img" style="display: inline; width: 64px; aspect-ratio: 1;">
+                                <img src="/media/{{ badge.image }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                </div>
+            </div>
+            <button class="mb-15 btn" style="cursor: pointer">Claim Now</button>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
