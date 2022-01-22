@@ -3,7 +3,7 @@
 
     <head>
         {% load static %}
-
+            
             <title>{% block head_title %}{% endblock %}</title>
 
         <meta charset="UTF-8" />
@@ -34,14 +34,20 @@
                     </div>
                 </nav>
                 <hr class="vertical-separator header__vertical-separator" />
+                {% if user.is_authenticated %}
                 <div class="flex vertical-center header__profile">
                     <div class="headerUsername">
-                        Jane Doe
+                        {{ user.first_name }} {{ user.last_name }}
                     </div>
                     <div class="container header__profile-image__container">
-                        <img src="{% static "assets/personpfp.jpg" %}" class="header__profile-image" alt="">
+                        {% if user.avatar != "default_avatar.jpg" %}
+                        <img src="{{ user.avatar }}" class="header__profile-image" />
+                        {% else %}
+                        <img src="{% static "assets/personpfp.jpg" %}" class="header__profile-image" />
+                        {% endif %}
                     </div>
                 </div>
+                {% endif %}
             </div>
         </header>
         <!-- HEADER ENDS -->
