@@ -4,11 +4,11 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-
 class Badge(models.Model):
     name = models.CharField(max_length=30)
     short_description = models.CharField(max_length=100)
     max_progress = models.IntegerField(default=1, validators=[MinValueValidator(0)])
+    image = models.ImageField(upload_to="badges/")
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

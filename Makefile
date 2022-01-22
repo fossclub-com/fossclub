@@ -1,4 +1,4 @@
-.PHONY: run fmt all-migrate make-mgrt mgrt setup python-setup pip
+.PHONY: run fmt all-migrate make-mgrt mgrt setup python-setup pip superuser
 
 # include .env vars
 ifneq (,$(wildcard ./.env))
@@ -27,3 +27,6 @@ pip: venv
 
 venv:
 	python3 -m venv venv
+
+superuser:
+	./venv/bin/python fossclub/manage.py createsuperuser
