@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.gitlab",
+    "huey.contrib.djhuey",
 ]
 
 MIDDLEWARE = [
@@ -184,10 +185,20 @@ ACCOUNT_PRESERVE_USERNAME_CASING = False
 SOCIALACCOUNT_EMAIL_VERIFICATION = False
 
 SOCIALACCOUNT_PROVIDERS = {
-    "github": {}
+    "github": {
+        "APP": {
+            "client_id": os.environ.get("GITHUB_CLIENT_ID"),
+            "secret": os.environ.get("GITHUB_CLIENT_SECRET"),
+        },
+    }
 }
 
 SOCIALACCOUNT_STORE_TOKENS = True  # this will be needed for badges
 
 SITE_ID = 1
 
+HUEY = {
+    "name": "fossclub",
+    "consumer": {"workers": 4, "worker_type": "thread"},
+    "immediate": False,
+}

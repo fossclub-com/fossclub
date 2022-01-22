@@ -2,6 +2,8 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 
 class Badge(models.Model):
@@ -9,6 +11,7 @@ class Badge(models.Model):
     short_description = models.CharField(max_length=100)
     max_progress = models.IntegerField(default=1, validators=[MinValueValidator(0)])
     image = models.ImageField(upload_to="badges/")
+    unit = models.CharField(max_length=30)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -43,7 +46,7 @@ class Perk(models.Model):
             self.long_description = ""
 
     def __str__(self):
-        return f"<Perk: {self.name}"
+        return f"<Perk: {self.name}>"
 
 
 class BadgeProgress(models.Model):
@@ -56,6 +59,8 @@ class BadgeProgress(models.Model):
         if self.progress >= self.badge.max_progress:
             self.unlocked = True
 
+        super().clean()
+
 # def validate_expiry_greater_than_today(expiry):
 #     if expiry < datetime.today():
 #         raise ValidationError(_("%(end_date)s should be today or later than today. Perks will be active until 11:59PM IST on this date"))
@@ -63,3 +68,7 @@ class BadgeProgress(models.Model):
 # 
 # def after_100_years():
 #     return datetime.now() + datetime.timedelta(year=100)
+
+@receiver(pre_save, sender=BadgeProgress)
+def update_badge_progress(sender, instance, **kwargs):
+    instance.clean()

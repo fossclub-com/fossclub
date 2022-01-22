@@ -21,11 +21,11 @@
                     <div class="goal__description">{{badge.short_description}}</div>
                 </div>
             </div>
+            <div class="goal__progress-count">{% if progress.progress %} {{ progress.progress }} {% else %} 0 {% endif %} / {{badge.max_progress}} {{ badge.unit }}</div>
             <div class="flex vertical-center w-100 mt-5 goal__progressbar-container">
                 {% comment %} <div class="mr-10 pad-2 goal__progressbar"></div> {% endcomment %}
                 <progress class="mr-10 pad-2 goal__progressbar" id="file" value="{{ progress.progress }}" max="{{badge.max_progress}}"> 
             </progress>
-            <div class="goal__progress-count">{% if progress.progress %} {{ progress.progress }} {% else %} 0 {% endif %} / {{badge.max_progress}}</div>
             </div>
         </div>
         {%endfor%}
@@ -45,9 +45,9 @@
             <div class="flex flex-wrap vertical-center mt-10 container">
                 {% for badge in unlocked_badges %}
                 <div class="flex horizontal-center vertical-center pad-10 br-5 badge">
-                    <img src="/media/{{ badge.image }}" class="badge-image" />
+                    <img src="/media/{{ badge.image }}" class="badge-image" alt="{{ badge.name }}" />
                 </div>
-                {%endfor%}
+                {% endfor %}
             </div>
         </div>
     </div>

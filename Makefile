@@ -33,3 +33,6 @@ superuser:
 
 shell:
 	./venv/bin/python fossclub/manage.py shell
+
+huey:
+	./venv/bin/python fossclub/manage.py run_huey

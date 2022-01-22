@@ -26,7 +26,7 @@ def list_badges(request):
 
     # TODO: this can be optimised, but come to this later
 
-    locked_badges = request.user.locked_badges
+    locked_badges = request.user.locked_badges.order_by("max_progress")
     unlocked_badges = request.user.unlocked_badges
     badge_progresses = request.user.badgeprogress_set.all()
 

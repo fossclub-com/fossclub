@@ -231,6 +231,10 @@ img {
     , #d8b4fe, #e879f9); /* temporary */
 }
 
+.goal__progress-count {
+    flex: 100%;
+}
+
 .goals__badge-image {
     width: 100px;
 }
