@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from perks.models import Badge
+
 
 class User(AbstractUser):
     # TODO: add profile photo, some other details
@@ -10,4 +12,8 @@ class User(AbstractUser):
 
     @property
     def unlocked_badges(self):
-        return self.badges.filter(unlocked=True)
+        return Badge.objects.filter(id__in=self.badgeprogress_set.filter(unlocked=True).values("badge_id")).all()
+
+    @property
+    def locked_badges(self):
+        return Badge.objects.exclude(id__in=self.badgeprogress_set.filter(unlocked=True).values("badge_id"))
