@@ -8,7 +8,9 @@ class User(AbstractUser):
     # TODO: add profile photo, some other details
 
     badges = models.ManyToManyField("perks.Badge", through="perks.BadgeProgress")
-    perks_won = models.ManyToManyField("perks.Perk")
+    perks_won = models.ManyToManyField("perks.Perk", blank=False)
+
+    avatar = models.ImageField(upload_to="avatars/")
 
     @property
     def unlocked_badges(self):
