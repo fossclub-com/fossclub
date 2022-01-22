@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -7,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 class Badge(models.Model):
     name = models.CharField(max_length=30)
     short_description = models.CharField(max_length=100)
+    max_progress = models.IntegerField(default=1, validators=[MinValueValidator(0)])
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -44,8 +46,15 @@ class Perk(models.Model):
         return f"<Perk: {self.name}"
 
 
-class PerkClaim(models.Model):
-   pass 
+class BadgeProgress(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    badge = models.ForeignKey(Badge, on_delete=models.RESTRICT)
+    progress = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    unlocked = models.BooleanField(default=False)
+
+    def clean(self):
+        if self.progress >= self.badge.max_progress:
+            self.unlocked = True
 
 # def validate_expiry_greater_than_today(expiry):
 #     if expiry < datetime.today():
