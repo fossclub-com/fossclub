@@ -6,27 +6,21 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+
+<div class="signup-card">
+
 <h1>{% trans "Sign Up" %}</h1>
 
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, sign up
-for a new account below{% endblocktrans %}</p>
-
 <div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
+  <ul class="socialaccount_providers" >
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
   </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
 </div>
 {% endif %}
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
@@ -34,7 +28,14 @@ for a new account below{% endblocktrans %}</p>
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+  <button class="submit-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
+
+<p class="centered">Already have an account? </p>
+<p class="centered">{% blocktrans %}<a class="hlinks" href="{{ login_url }}">Log in</a>{% endblocktrans %}</p>
+
+
+
+</div>
 
 {% endblock %}
