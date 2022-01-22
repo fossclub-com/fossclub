@@ -17,11 +17,6 @@
 
 /* COMMON CLASSES START */
 
-a {
-    color: black;
-    text-decoration: none;
-}
-
 img {
     width: 100%;
     object-fit: cover;
@@ -52,16 +47,12 @@ img {
     margin: 10px;
 }
 
-.mt-5 {
-    margin-top: 5px;
+.mt-20 {
+    margin-top: 20px;
 }
 
 .mt-10 {
     margin-top: 10px;
-
-}
-.mt-20 {
-    margin-top: 20px;
 }
 
 .mr-10 {
@@ -98,10 +89,6 @@ img {
 
 .pad-10 {
     padding: 10px;
-}
-
-.pad-20 {
-    padding: 200px;
 }
 
 .br-5 {
@@ -220,12 +207,18 @@ img {
 }
 
 .goals__badge-image {
-    width: 69px;
+    width: 100px;
+}
+
+.goal__progressbar-container {
+    margin: 10px 0px 5px 10px;
 }
 
 .goal__progressbar {
     width: 85%;
-    height: 25px;
+    height: 15px;
+    border: 2px solid red;
+    background-color: blue;
 }
 
 .badge {
