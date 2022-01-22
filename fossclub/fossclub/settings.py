@@ -27,6 +27,9 @@ SECRET_KEY = "django-insecure-hui!=81=z$m6b6#jv=9m645qtr_4km@u_#p*ez4m&6&(f8yh6i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "users.User"
@@ -81,6 +84,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
             ],
         },
     },
