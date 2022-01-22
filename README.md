@@ -8,5 +8,3 @@ eligible for.
 
 These perks don't have to be high commitment such as cash, but can instead be anything that developers will
 appreciate - conference passes, schwag, early access, crypto, cloud credits, or a free coffee.
-
-Hello World
