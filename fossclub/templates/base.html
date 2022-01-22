@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+
+            <title>{% block head_title %}{% endblock %}</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <link rel="stylesheet" href="{% static "new_style.css" %}" />
+        {% block extra_head %} {% endblock %}
+      </head>
+    <body>
+        <!-- HEADER STARTS -->
+        <header class="flex vertical-center header">
+            <div class="container">
+                <div class="logo-container">
+                    <img src="{% static "assets/default-monochrome.svg" %}" class="logo" />
+                </div>
+            </div>
+            <div class="flex vertical-center container container__header-right">
+                <nav class="flex flex-wrap horizontal-center vertical-center navbar">
+                    <div class="flex vertical-center navbar__item">
+                        Perks
+                    </div>
+                    <div class="flex vertical-center navbar__item navbar__item--active">
+                        Achievements
+                    </div>
+                </nav>
+                <hr class="vertical-separator header__vertical-separator" />
+                <div class="flex vertical-center header__profile">
+                    <div class="headerUsername">
+                        Arven Ozgilliath
+                    </div>
+                    <div class="container header__profile-image__container">
+                        <img src="{% static "assets/personpfp.jpg" %}" class="header__profile-image" alt="">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- HEADER ENDS -->
+        {%block body %}
+
+        {%block content%} {% endblock %}
+        {%block extra_body %} {% endblock %}
+        <!-- MAIN BODY STARTS -->
+        {% endblock %}
+    </body>
+
+</html>

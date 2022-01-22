@@ -1,18 +1,9 @@
-body {
-  background-color: aliceblue;
-  /* width: 100vw; */
-  /* height: 100vh; */
-  font-family: sans-serif;
-}
-
 .signup-card, .login-card {
   background-color: #ffffff;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
   border-radius: 8px;
   padding: 20px;
   width: 400px;
-  margin: 0 auto;
+  margin: 50px auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   justify-content: center;
 }
@@ -23,9 +14,14 @@ body {
   color: #1f2937;
 }
 
+.errorlist {
+  color: #ef4444;
+}
+
 .socialaccount_ballot {
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 10px;
+  padding: 20px;
 }
 
 .signup-card ul, .login-card ul {
@@ -48,6 +44,7 @@ body {
   width: 100%;
   justify-content: center !important;
   font-size: 18px;
+  margin-top: 10px;
   justify-self: center !important;
 }
 
