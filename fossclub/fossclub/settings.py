@@ -39,6 +39,7 @@ USE_POSTGRES = os.getenv("USE_POSTGRES", False)
 INSTALLED_APPS = [
     # custom
     "users",
+    "perks",
 
     # django
     "django.contrib.admin",
