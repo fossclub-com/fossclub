@@ -1,0 +1,118 @@
+body {
+  background-color: aliceblue;
+  /* width: 100vw; */
+  /* height: 100vh; */
+  font-family: sans-serif;
+}
+
+.signup-card, .login-card {
+  background-color: #ffffff;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  justify-content: center;
+}
+
+.signup-card h1, .login-card h1 {
+  display: flex;
+  justify-content: center;
+  color: #1f2937;
+}
+
+.socialaccount_ballot {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.signup-card ul, .login-card ul {
+  list-style: none;
+  padding: 0;
+}
+.signup-card ul li a, .login-card ul li a {
+  color: #000;
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.centered {
+  display: flex;
+  width: 100%;
+  justify-content: center !important;
+  font-size: 18px;
+  justify-self: center !important;
+}
+
+.hlinks {
+  text-decoration: none;
+  color: #003BFF;
+  text-align: center;
+}
+
+.signup, .login{
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.2rem;
+}
+
+.signup-card .submit-btn, .login-card .submit-btn {
+  width: 100%;
+  background-color: #1865F2;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.signup-card .signup p, .login-card .login p {
+  margin: 10px 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.signup-card .signup p label, .login-card .login p label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 5px;
+  color: #4b5563;
+}
+
+.signup-card .signup p input, .login-card .login p input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+label[for="id_remember"] {
+  width: 50% !important;
+}
+
+input#id_remember {
+  width: 1.2rem;
+  text-align: end;
+}
