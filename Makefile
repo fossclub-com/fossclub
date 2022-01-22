@@ -1,4 +1,4 @@
-.PHONY: run fmt all-migrate make-mgrt mgrt
+.PHONY: run fmt all-migrate make-mgrt mgrt setup python-setup pip
 
 # include .env vars
 ifneq (,$(wildcard ./.env))
@@ -19,3 +19,11 @@ make-mgrt:
 
 mgrt:
 	./venv/bin/python fossclub/manage.py migrate
+
+python-setup: pip
+
+pip: venv
+	./venv/bin/python -m pip install -r requirements.txt
+
+venv:
+	python3 -m venv venv

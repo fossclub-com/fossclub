@@ -44,6 +44,9 @@ class Perk(models.Model):
         return f"<Perk: {self.name}"
 
 
+class PerkClaim(models.Model):
+   pass 
+
 # def validate_expiry_greater_than_today(expiry):
 #     if expiry < datetime.today():
 #         raise ValidationError(_("%(end_date)s should be today or later than today. Perks will be active until 11:59PM IST on this date"))
