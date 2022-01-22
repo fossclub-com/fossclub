@@ -43,12 +43,24 @@ img {
     width: 100%;
 }
 
+.mt-10 {
+    margin-top: 10px;
+}
+
 .mr-10 {
     margin-right: 10px;
 }
 
 .mb-5 {
     margin-bottom: 5px;
+}
+
+.pad-2 {
+    padding: 2px;
+}
+
+.br-5 {
+    border-radius: 5px;
 }
 
 .heading--primary {
@@ -159,9 +171,16 @@ img {
 .goal__progressbar {
     width: 85%;
     height: 15px;
-    padding: 2px;
     border: 2px solid red;
     background-color: blue;
+}
+
+.badge {
+    width: 30%;
+    max-width: 100px;
+    aspect-ratio: 1;
+    background-color: #f0abfc;
+    margin: 5px; /* temporary */
 }
 
 /* MAIN BODY ENDS */
