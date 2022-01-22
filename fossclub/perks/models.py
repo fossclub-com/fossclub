@@ -31,7 +31,7 @@ class Perk(models.Model):
     image = models.ImageField(upload_to="perks")
     status = models.CharField(max_length=2, choices=PerkStatus.choices, default=PerkStatus.ACTIVE, null=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    required_badges = models.ManyToManyField(Badge, help_text=_("Badges that act as a eligibility criterion for this perk"))
+    required_badges = models.ManyToManyField(Badge, help_text=_("Badges that act as a eligibility criterion for this perk. Use Ctrl to select multiple badges."))
     # expiry = models.DateTimeField(default=after_100_years, help_text=_("Time until which the perk can be claimed. Default is 100 years"))
     quantity = models.IntegerField(default=100000, help_text=_("The number of times that this perk can be claimed, if it is only in limited quantity"))
 

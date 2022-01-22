@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
+{%block extra_head%}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static "perks/addperk.css" %}" />
+
+{%endblock%}
+
 {% block content %}
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" class="perk-form">
+    <h2>Add a new Perk</h2>
     {% csrf_token %}
 
     {{ form.as_p }}
 
-    <button type="submit">Submit</button>
+    <button class="submit-btn" type="submit">Submit</button>
 </form>
 
 {% endblock %}

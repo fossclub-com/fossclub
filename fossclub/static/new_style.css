@@ -48,20 +48,20 @@ img {
     width: 100%;
 }
 
+.mar-0 {
+    margin: 0;
+}
+
 .mar-10 {
     margin: 10px;
 }
 
-.mt-5 {
-    margin-top: 5px;
+.mt-20 {
+    margin-top: 20px;
 }
 
 .mt-10 {
     margin-top: 10px;
-
-}
-.mt-20 {
-    margin-top: 20px;
 }
 
 .mr-10 {
@@ -100,18 +100,23 @@ img {
     padding: 10px;
 }
 
-.pad-20 {
-    padding: 200px;
-}
-
 .br-5 {
     border-radius: 5px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .main {
     justify-content: space-around;
     max-width: 80em;
     margin: 50px auto 0 auto;
+}
+
+.heading {
+    width: 100%;
+    font-weight: 700;
 }
 
 .heading--primary {
@@ -121,6 +126,12 @@ img {
 .heading--secondary {
     font-size: 1.1em;
     font-weight: 700;
+}
+
+.heading--sub {
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(146, 146, 146);
 }
 
 .normal-text {
@@ -206,21 +217,26 @@ img {
     margin: 0 60px;
 }
 
-.main__left-container {
+.main__large-container {
     width: 70%;
 }
 
-.main__right-container {
+.main__small-container {
     width: 30%;
 }
 
 .goal {
     padding: 10px;
-    background-color: bisque; /* temporary */
+    background: linear-gradient(45deg, #ddd6fe
+    , #d8b4fe, #e879f9); /* temporary */
 }
 
 .goals__badge-image {
-    width: 69px;
+    width: 100px;
+}
+
+.goal__progressbar-container {
+    margin: 10px 0px 5px 10px;
 }
 
 .goal__progressbar {
@@ -269,7 +285,7 @@ img {
 .perk-image {
     display: block;
     width: 100%;
-    /* aspect-ratio: calc(9/6); */
+    aspect-ratio: calc(9/6);
 }
 
 .perk-details {
@@ -277,3 +293,14 @@ img {
 }
 
 /* PERK CARD ENDS */
+
+
+/* USER PROFILE START */
+
+.user-pfp {
+    width: 200px;
+    aspect-ratio: 1;
+    border-radius: 0.5rem; /* temporary */
+}
+
+/* USER PROFILE END */
