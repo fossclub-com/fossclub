@@ -1,0 +1,9 @@
+{# {% extends 'base.html' %} #}
+
+{% block content %}
+    <ul>
+        {% for perk in perks %}
+        <li>{{ perk.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

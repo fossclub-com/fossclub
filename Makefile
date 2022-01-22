@@ -30,3 +30,6 @@ venv:
 
 superuser:
 	./venv/bin/python fossclub/manage.py createsuperuser
+
+shell:
+	./venv/bin/python fossclub/manage.py shell
