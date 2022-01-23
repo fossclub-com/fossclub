@@ -44,8 +44,27 @@
             </h1>
             <div class="flex flex-wrap vertical-center mt-10 container">
                 {% for badge in unlocked_badges %}
-                <div class="flex horizontal-center vertical-center ml-0 mr-10 pad-10 pl-0 br-5 achievement__badge" title="{{badge.name}}">
+                <div id="{{badge.id}} " class="flex horizontal-center vertical-center ml-0 mr-10 pad-10 pl-0 br-5 achievement__badge" onclick="toggleBadgeCard({{badge.id}})" title="{{badge.name}}">
                     <img src="/media/{{ badge.image }}" class="badge-image" alt="{{ badge.name }}" />
+                </div>
+                <div id="{{ badge.id }}" class="badge_card flex horizontal-center vertical-center hidden full-container">
+                    <div class="br-5 pt-20 pb-0 bg-white card-container">
+                        <span id="close-button" class="close-button" onclick="hideBadgeCard({{badge.id}})" style="cursor: pointer;">&times;</span>
+                        <img src="/media/{{ badge.image }}" class="badge-image" alt="Perk image">
+                        <div class="card-details">
+                            <div class="mb-5 container">
+                                <h3 class="mb-3 heading--secondary">
+                                    {{ badge.name }}
+                                </h3>
+                                <div class="normal-text">
+                                    {{ badge.short_description }}
+                                </div>
+                            </div>
+                            <div class="mt-20 container">
+                                <h3 class="heading--secondary">You own this badge!</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -56,28 +75,40 @@
 
 </main>
 
-<div id="badge_card" class="flex horizontal-center vertical-center hidden full-container">
-    <div class="br-5 pt-20 pb-0 bg-white card-container">
-        <img src="rockstar50.png" class="badge-image" alt="Perk image">
-        <div class="card-details">
-            <div class="mb-5 container">
-                <h3 class="mb-3 heading--secondary">
-                    Badge Name
-                </h3>
-                <div class="normal-text">
-                    Badge detail Lorem ipsum dolor, sit amet consectetur 
-                </div>
-            </div>
-            <div class="mt-20 container">
-                <h3 class="heading--secondary">You own this badge!</h3>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script>
-    function toggleBadgeCard () {
-        document.getElementById("badge_card")
+    function toggleBadgeCard(badgeId) {
+        var badge_card = null;
+        var badge_cards = document.getElementsByClassName("badge_card");
+        for(var i = 0; i < badge_cards.length; i++) {
+            if(badge_cards[i].id == badgeId) {
+                badge_card = badge_cards[i];
+                break;
+            }
+        }
+        console.log("HI");
+        console.log(badge_card);
+        console.log(badge_card.className);
+        if(badge_card.className == "badge_card flex horizontal-center vertical-center hidden full-container") {
+            badge_card.className = "badge_card flex horizontal-center vertical-center full-container";
+        }
+        else {
+            badge_card.className = "badge_card flex horizontal-center vertical-center hidden full-container";
+        }
+    }
+
+    function hideBadgeCard (badgeId) {
+        var close_button = document.getElementsByClassName("close-button");
+        var badge_card = null;
+        var badge_cards = document.getElementsByClassName("badge_card");
+        for(var i = 0; i < badge_cards.length; i++) {
+            if(badge_cards[i].id == badgeId) {
+                badge_card = badge_cards[i];
+                break;
+            }
+        }
+        badge_card.className = "badge_card flex horizontal-center vertical-center hidden full-container";
     }
 </script>
 
