@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.views.generic.edit import CreateView
 
 from perks.models import Perk, Badge
@@ -56,8 +57,17 @@ def claim_perk(request, perk_id):
     perk = get_object_or_404(Perk, id=perk_id)
     user = request.user
 
-    if perk in user.perks_won:
-        context["message"] = ""
+    if perk not in user.perks_won.all():
+        eligible = True
+        for badge in perk.required_badges:
+            if badge not in user.unlocked_badges:
+                eligible = False
+                break
+
+    if eligible:
+        user.perks_won.add(perk)
+
+    return redirect(reverse("show_perk", perk.id))
 
 
 class PerkCreateView(LoginRequiredMixin, CreateView):
