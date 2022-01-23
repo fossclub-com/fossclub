@@ -99,8 +99,24 @@ img {
 }
 
 .card-container {
+    position: relative;
     max-width: 21em;
     padding: 10px 0 10px 0;
+}
+
+.close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 100px;
 }
 
 .btn {
