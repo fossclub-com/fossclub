@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +26,9 @@ SECRET_KEY = "django-insecure-hui!=81=z$m6b6#jv=9m645qtr_4km@u_#p*ez4m&6&(f8yh6i
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 ALLOWED_HOSTS = []
 
@@ -56,6 +59,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.gitlab",
+    "huey.contrib.djhuey",
 ]
 
 MIDDLEWARE = [
@@ -81,6 +85,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -180,10 +185,20 @@ ACCOUNT_PRESERVE_USERNAME_CASING = False
 SOCIALACCOUNT_EMAIL_VERIFICATION = False
 
 SOCIALACCOUNT_PROVIDERS = {
-    "github": {}
+    "github": {
+        "APP": {
+            "client_id": os.environ.get("GITHUB_CLIENT_ID"),
+            "secret": os.environ.get("GITHUB_CLIENT_SECRET"),
+        },
+    }
 }
 
 SOCIALACCOUNT_STORE_TOKENS = True  # this will be needed for badges
 
 SITE_ID = 1
 
+HUEY = {
+    "name": "fossclub",
+    "consumer": {"workers": 4, "worker_type": "thread"},
+    "immediate": False,
+}

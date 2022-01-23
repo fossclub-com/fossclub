@@ -1,0 +1,157 @@
+.perk-form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 700px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    justify-content: center;
+}
+
+.perk-form h2 {
+    margin-bottom: 20px;
+}
+
+.perk-form p label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 5px;
+    color: #4b5563;
+}
+
+.perk-form p input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #374151;
+}
+
+.perk-form p textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #374151;
+}
+
+.perk-form p select {
+    width: 100%;/*  */
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #374151;
+}
+
+.perk-form p select option {
+    color: #374151;
+    cursor: pointer;
+}
+
+.perk-form .helptext {
+    display: block;
+    color: #4b5563;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+input#id_image {
+    cursor: pointer;
+}
+
+input#id_image::file-selector-button {
+    background: #3B82F6;
+    border: none;
+    border-radius: 5px;
+    color: #f3f4f6;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 1rem;    
+}
+
+input#id_image::file-selector-button:hover {
+    background: #1a70fa;
+    border: none;
+    border-radius: 5px;
+    color: #f3f4f6;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+
+.perk-form .submit-btn {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #3B82F6;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #f3f4f6;    
+    border: none;
+    font-weight: 500;
+}
+
+.perk-form .submit-btn:hover {
+    background-color: #1a70fa;
+    color: #f3f4f6;
+}
+
+
+.perk-form p input:focus,
+.perk-form p textarea:focus,
+.perk-form p select:focus {
+    outline: none;
+    border: 1px solid #4b5563;
+}
+
+.perk-form p input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    color: #fff;
+    background-color: #4b5563;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.perk-form p input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #374151;
+}
+
+.perk-form p input[type="submit"]:focus {
+    outline: none;
+}
+
+.perk-form p input[type="submit"]:active {
+    background-color: #4b5563;
+}
+
+.perk-form p .error {
+    color: #ff0000;
+    font-size: 1rem;
+}
+
+.perk-form p .success {
+    color: #00ff00;
+    font-size: 1rem;
+}
+
+.perk-form p .success-message {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #374151;
+}

@@ -2,6 +2,63 @@
 
 {% block content %}
 
+<main class="flex main">
+
+    <!-- GOALS START -->
+
+    <div class="main__container main__large-container">
+        <h1 class="heading--primary mb-10">
+            Goals
+        </h1>
+        {% for badge, progress in locked_badges %}
+        <div class="flex flex-wrap mb-10 br-5 goal">
+            <div class="flex vertical-center goal__info">
+                <div class="container">
+                    <img src="/media/{{badge.image}}" class="badge-image goals__badge-image"></img>
+                </div>
+                <div class="ml-10 container">
+                    <h3 class="mb-5 heading--secondary goal__title">{{badge.name}}</h3>
+                    <div class="goal__description">{{badge.short_description}}</div>
+                </div>
+            </div>
+            <div class="goal__progress-count">{% if progress.progress %} {{ progress.progress }} {% else %} 0 {% endif %} / {{badge.max_progress}} {{ badge.unit }}</div>
+            <div class="flex vertical-center w-100 mt-5 goal__progressbar-container">
+                {% comment %} <div class="mr-10 pad-2 goal__progressbar"></div> {% endcomment %}
+                <progress class="mr-10 pad-2 goal__progressbar" id="file" value="{{ progress.progress }}" max="{{badge.max_progress}}"> 
+            </progress>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+    <!-- GOALS END -->
+
+    <hr class="vertical-separator main__vertical-separator"/>
+
+    <!-- BADGES START -->
+
+    <div class="main__container main__small-container">
+        <div class="container badge-container">
+            <h1 class="heading--primary mb-10">
+                Badges
+            </h1>
+            <div class="flex flex-wrap vertical-center mt-10 container">
+                {% for badge in unlocked_badges %}
+                <div class="flex horizontal-center vertical-center pad-10 br-5 badge">
+                    <img src="/media/{{ badge.image }}" class="badge-image" alt="{{ badge.name }}" />
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- BADGES END -->
+
+</main>
+
+
+{% comment %} 
+
 <h2>In Progress</h2>
 
 <ul>
@@ -13,7 +70,7 @@
     <div>
         <div>
             <p>
-                Badge image: <img src="{{ badge.image }}" />
+                Badge image: <img src="/media/{{ badge.image }}" />
             </p>
             <p>
                 Badge name: {{ badge.name }}
@@ -50,6 +107,6 @@
 {% endfor %}
 
 </ul>
-
+ {% endcomment %}
 
 {% endblock %}
