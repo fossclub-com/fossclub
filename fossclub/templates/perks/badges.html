@@ -7,11 +7,11 @@
     <!-- GOALS START -->
 
     <div class="main__container main__large-container">
-        <h1 class="heading--primary mb-10">
-            Goals
+        <h1 class="heading--primary mb-20">
+            Unfinished Challenges <span style="color: grey;">({{ locked_badges|length }})</span>
         </h1>
         {% for badge, progress in locked_badges %}
-        <div class="flex flex-wrap mb-20 br-5 goal">
+        <div class="flex flex-wrap mb-20 br-5 goal" style="padding: 20px;">
             <div class="flex vertical-center goal__info">
                 <div class="container">
                     <img src="/media/{{badge.image}}" class="badge-image goals__badge-image"></img>
@@ -40,7 +40,7 @@
     <div class="main__container main__small-container">
         <div class="container badge-container">
             <h1 class="heading--primary mb-10">
-                Badges
+                Badges <span style="color: grey;">({{ unlocked_badges|length }})</span>
             </h1>
             <div class="flex flex-wrap vertical-center mt-10 container">
                 {% for badge in unlocked_badges %}
