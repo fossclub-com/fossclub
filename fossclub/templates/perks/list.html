@@ -8,7 +8,48 @@
 
 {% block content %}
     <main class="flex flex-wrap main perk__main">
+        <div class="ml-50 mr-50 w-100" style="margin-bottom: 30px;">
+            <h1 class="heading--primary text-center">Popular perks <span style="color: grey;">({{ perks|length }})</span></h1>
+        </div>
         {% for perk in perks %}
+        <div class="br-5 mr-50 mb-50 bg-white card-container perk-container">
+                <div class="flex vertical-center mb-10 ml-10 perk-sponsor">
+                    <img src="/media/default-avatar.jpg" alt="Sponsoro logo" class="sponsor-logo" />
+                    <div class="ml-5 sponsor-name">{{ perk.creator.username }}</div>
+                </div>
+                <img src="/media/{{ perk.image }}" class="perk-image" alt="Perk image">
+                <div class="card-details">
+                <a href="/perks/{{perk.id}}">
+                    <div class="mb-5 container">
+                        <h3 class="mb-3 heading--secondary">
+                            {{ perk.name }}
+                        </h3>
+                        <div class="normal-text">
+                            {{ perk.short_description }}
+                        </div>
+                    </div>
+                </a>
+                    <div class="mb-5 mt-20 container">
+                        <h3 class="mb-3 heading--secondary">Required Badges: </h3>
+                            <div class="badge-container" style="display: flex; flex-wrap: wrap; justify-content: space-around; margin: 20px;">
+                                {% for badge in perk.required_badges.all %}
+                                {% if forloop.counter < 4 %}
+                                <div class="badge-img" style="display: inline; width: 64px; aspect-ratio: 1;" title="{{ badge.name }}">
+                                    <img src="/media/{{ badge.image }}">
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                    </div>
+                </div>
+                <a href="/perks/claim/{{ perk.id }}/"><button class="mb-15 btn" style="cursor: pointer">Claim Now</button></a>
+        </div>
+        {% endfor %}
+
+        <div class="ml-50 mr-50 w-100">
+            <h1 class="heading--primary text-center">Claimed perks <span style="color: grey;">({{ user.perks_won.all|length }})</span></h1>
+        </div>
+        {% for perk in user.perks_won.all %}
         <div class="br-5 mr-50 mb-50 bg-white card-container perk-container">
                 <div class="flex vertical-center mb-10 ml-10 perk-sponsor">
                     <img src="/media/default-avatar.jpg" alt="Sponsoro logo" class="sponsor-logo" />

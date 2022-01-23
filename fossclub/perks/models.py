@@ -46,6 +46,9 @@ class Perk(models.Model):
         if self.long_description is None:
             self.long_description = ""
 
+    def get_absolute_url(self):
+        return f"/perks/{self.id}/"
+
     def __str__(self):
         return f"<Perk: {self.name}>"
 

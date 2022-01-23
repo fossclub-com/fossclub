@@ -2,10 +2,12 @@
 
 {%block content%}
 
+{% load static %}
+
 <main class="flex main">
     <div class="flex flex-wrap horizontal-center main__container main__small-container">
         <div class="user-profile">
-            <img src="/media/{{user.avatar}}" alt="" class="user-pfp">
+            <img src="{% static "assets/personpfp.jpg" %}" alt="" class="user-pfp">
             <div class="heading heading--secondary text-center user-name">{{user.first_name}} {{user.last_name}}</div>
             <div class="heading heading--sub text-center user-username">@{{user.username}}</div>
         </div>
