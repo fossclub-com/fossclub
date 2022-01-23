@@ -1,5 +1,12 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+
+def index(request):
+    if request.user.is_authenticated:
+        return redirect("/perks/")
+    else:
+        return redirect("/accounts/signup/")
 
 
 @login_required

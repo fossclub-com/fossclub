@@ -64,7 +64,7 @@ def claim_perk(request, perk_id):
 
     if perk not in user.perks_won.all():
         eligible = True
-        for badge in perk.required_badges:
+        for badge in perk.required_badges.all():
             if badge not in user.unlocked_badges:
                 eligible = False
                 break
@@ -72,12 +72,12 @@ def claim_perk(request, perk_id):
     if eligible:
         user.perks_won.add(perk)
 
-    return redirect(reverse("show_perk", perk.id))
+    return redirect(f"/perks/{perk.id}/")
 
 
 class PerkCreateView(LoginRequiredMixin, CreateView):
     model = Perk
-    fields = ["name", "short_description", "long_description", "image", "required_badges", "quantity"]
+    fields = ["name", "short_description", "long_description", "restricted_text", "image", "required_badges", "quantity"]
     template_name = "perks/new.html"
 
     def form_valid(self, form):

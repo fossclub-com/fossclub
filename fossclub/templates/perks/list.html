@@ -11,7 +11,7 @@
         {% for perk in perks %}
         <div class="br-5 mr-50 mb-50 bg-white card-container perk-container">
                 <div class="flex vertical-center mb-10 ml-10 perk-sponsor">
-                    <img src="sponsorLogo.svg" alt="Sponsoro logo" class="sponsor-logo" />
+                    <img src="/media/default-avatar.jpg" alt="Sponsoro logo" class="sponsor-logo" />
                     <div class="ml-5 sponsor-name">{{ perk.creator.username }}</div>
                 </div>
                 <img src="/media/{{ perk.image }}" class="perk-image" alt="Perk image">
@@ -39,7 +39,7 @@
                             </div>
                     </div>
                 </div>
-            <button class="mb-15 btn" style="cursor: pointer">Claim Now</button>
+                <a href="/perks/claim/{{ perk.id }}/"><button class="mb-15 btn" style="cursor: pointer">Claim Now</button></a>
         </div>
         {% endfor %}
     </main>
