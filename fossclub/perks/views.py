@@ -48,7 +48,7 @@ def list_badges(request):
 
 def show_perk(request, perk_id):
     perk = get_object_or_404(Perk, id=perk_id)
-    return render(request, "perks/show.html", context)
+    return render(request, "perks/show.html", context={"perk": perk})
 
 
 class PerkCreateView(LoginRequiredMixin, CreateView):

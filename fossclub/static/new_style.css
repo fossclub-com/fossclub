@@ -48,78 +48,6 @@ img {
     justify-content: center;
 }
 
-.w-100 {
-    width: 100%;
-}
-
-.h-20 {
-    height: 20px;
-}
-
-.mar-0 {
-    margin: 0;
-}
-
-.mar-10 {
-    margin: 10px;
-}
-
-.mar-20 {
-    margin: 20px;
-}
-
-.mt-20 {
-    margin-top: 20px;
-}
-
-.mt-10 {
-    margin-top: 10px;
-}
-
-.mr-10 {
-    margin-right: 10px;
-}
-
-.mb-3 {
-    margin-bottom: 3px;
-}
-
-.mb-5 {
-    margin-bottom: 5px;
-}
-
-.mb-10 {
-    margin-bottom: 10px;
-}
-
-.mb-15 {
-    margin-bottom: 15px;
-}
-
-.mb-20 {
-    margin-bottom: 20px;
-}
-
-.ml-5 {
-    margin-left: 5px;
-}
-
-.ml-10 {
-    margin-left: 10px;
-}
-
-.pad-2 {
-    padding: 2px;
-}
-
-.pad-10 {
-    padding: 10px;
-}
-
-.br-5 {
-    border-radius: 5px;
-}
-
 .bg-white {
     background-color: white;
 }
@@ -166,6 +94,10 @@ img {
     font-size: 0.9em;
 }
 
+.hidden {
+    display: none;
+}
+
 .card-container {
     max-width: 21em;
     padding: 10px 0 10px 0;
@@ -173,6 +105,7 @@ img {
 
 .btn {
     display: block;
+    width: 90px;
     margin: 0 auto 0 auto;
     padding: 10px;
     background-color: #3B82F6;
@@ -198,6 +131,19 @@ hr {
     margin: 0 60px;
 }
 
+.card-details {
+    padding: 20px;
+}
+
+.full-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 /* COMMON CLASSES END */
 
 
@@ -221,15 +167,29 @@ hr {
     height: 100%;
 }
 
+.add-perk {
+    padding: 10px;
+    background-color: #6366F1;
+    color: #f3f4f6;
+}
+
+
 .navbar__item {
     height: 100%;
     margin-left: 15px;
-    border-top: 4px solid rgba(0, 0, 0, 0);
-    border-bottom: 4px solid rgba(0, 0, 0, 0);
+    transition: color 300ms;
+}
+
+.navbar__item:hover {
+    color: #6366F1;
+}
+
+.add-perk:hover {
+    color: #f3f4f6;
 }
 
 .navbar__item--active {
-    border-bottom: 4px solid blue;
+    color: #6366F1;
 }
 
 .header__vertical-separator {
@@ -272,11 +232,8 @@ hr {
 
 .goal {
     padding: 10px;
-    background: linear-gradient(45deg, #f8fafc, #f2f4f7, #eff0f1);
-    border-radius: 5px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 1px 1px 8px rgba(92, 89, 89, 0.336);
-    margin-bottom: 20px;
+    background: white; /* temporary */
+    box-shadow: 1px 1px 10px rgba(90, 90, 90, 0.4);
 }
 
 .goals__badge-image {
@@ -296,11 +253,16 @@ hr {
     flex: 100%;
 }
 
-.badge {
+.achievement__badge {
     width: 30%;
     max-width: 100px;
     aspect-ratio: 1;
-    background-color: #f0abfc;
+}
+
+.badge {
+    width: 30%;
+    max-width: 64px;
+    aspect-ratio: 1;
     margin: 5px; /* temporary */
 }
 
@@ -309,6 +271,10 @@ hr {
 
 /* PERK CARD STARTS */
 
+.perk__main {
+    justify-content: space-around;
+}
+
 .perk-container {
     box-shadow: 1px 1px 10px rgba(90, 90, 90, 0.4);
     transition:  box-shadow 300ms;
@@ -316,11 +282,6 @@ hr {
 
 .perk-container:hover {
     box-shadow: 2px 2px 10px rgba(90, 90, 90, 0.4);
-}
-
-.perk-sponsor {
-    display: flex;
-    align-items: center;
 }
 
 .sponsor-logo {
@@ -336,10 +297,6 @@ hr {
     display: block;
     width: 100%;
     aspect-ratio: calc(9/6);
-}
-
-.perk-details {
-    padding: 20px;
 }
 
 /* PERK CARD ENDS */
@@ -385,8 +342,8 @@ hr {
 .user-activity {
     width: 690px;
     /* Temporary */
-    background-color: rgba(255,116,116,0.1);
-    color: #ff7474;
+    background-color: rgba(137,76,255,0.1);
+    color: #894cff;
     /* Temporary */
     padding: 40px;
 }
@@ -396,3 +353,164 @@ hr {
 }
 
 /* USER ACTIVITY END */
+
+
+/* PERK PAGE START */
+
+.perk-info__container-right {
+    width: 60%;
+}
+
+.perk-info-image {
+    padding: 2px;
+    border: 2px solid grey;
+}
+
+.perk-info-container {
+    max-width: 40em;
+}
+
+.perk-name {
+    font-weight: 900;
+}
+
+/* PERK PAGE END */
+
+
+/* BADGE CARD STARTS */
+
+    .badge-image {
+        display: block;
+        /* width: 100px; */
+        aspect-ratio: 1;
+        margin: auto;
+        border-radius: 5px 5px 0 0;
+    }
+
+/* BADGE CARD ENDS */
+
+
+/* MARGINS AND PADDINGS START */
+
+.w-100 {
+    width: 100%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.h-20 {
+    height: 20px;
+}
+
+.br-5 {
+    border-radius: 5px;
+}
+
+.mar-0 {
+    margin: 0;
+}
+
+.mar-10 {
+    margin: 10px;
+}
+
+.mar-20 {
+    margin: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mr-50 {
+    margin-right: 50px;
+}
+
+.mr-100 {
+    margin-right: 100%;
+}
+
+.mb-3 {
+    margin-bottom: 3px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.ml-0 {
+    margin-left: 0;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.pad-2 {
+    padding: 2px;
+}
+
+.pad-10 {
+    padding: 10px;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pb-0 {
+    padding-bottom: 0;
+}
+
+.pl-0 {
+    padding-left: 0;
+}
+
+.bolder {
+    font-weight: 900;
+}
+
+
+/* MARGINS AND PADDINGS END */
