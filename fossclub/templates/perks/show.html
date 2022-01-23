@@ -2,6 +2,10 @@
 
 {%block extra_body %}
 <main class="flex flex-wrap w-60 main">
+    {% if user.is_authenticated and perk_won %}
+    <div style="font-weight: 900; color: #4ade80; mb-15; width: 100%; font-size: 1.2rem; margin-bottom: 20px;">You have won this perk! See below for the next steps</div>
+    {% endif %}
+
     <div class="flex flex-wrap horizontal-center mr-50 main__container main__small-container">
         <div class="mb-20">
             <img src="/media/{{ perk.image }}" class="br-5 perk-info-image" alt="Image of perk" />
@@ -23,7 +27,9 @@
                 {{perk.short_description}} 
             </div>
 
-            <button class="btn mar-0 mr-auto"> Claim Now </button>
+            {% if user.is_authenticated and not perk_won %}
+            <a href="/perks/"><button type="button" class="btn mar-0 mr-auto">Claim Now</button></a>
+            {% endif %}
 
             <div class="mt-20 container badge-container">
                 <h1 class="heading--secondary">
@@ -45,6 +51,14 @@
     
     <div class="mt-20 perk-long-description">
        {{perk.long_description}}
+    </div>
+
+    <div class="mt-20 perk-long-description">
+        <p>
+            <b>This text is only visible to those who have won this perk. This contains the next steps on claiming
+                the perk.</b>
+        </p>
+       {{perk.restricted_text}}
     </div>
 </main>
 {%endblock%}

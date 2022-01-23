@@ -49,7 +49,12 @@ def list_badges(request):
 
 def show_perk(request, perk_id):
     perk = get_object_or_404(Perk, id=perk_id)
-    return render(request, "perks/show.html", context={"perk": perk})
+
+    perk_won = False
+    if request.user.is_authenticated:
+        perk_won = perk in request.user.perks_won.all()
+
+    return render(request, "perks/show.html", context={"perk": perk, "perk_won": perk_won})
 
 
 @login_required
