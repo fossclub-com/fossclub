@@ -446,6 +446,10 @@ hr {
     margin-top: 10px;
 }
 
+.mt-50 {
+    margin-top: 50px;
+}
+
 .mr-auto {
     margin-right: auto;
 }
@@ -532,3 +536,29 @@ hr {
 
 
 /* MARGINS AND PADDINGS END */
+
+
+/* LOGIN START */
+
+.provider-img {
+    width: 30px;
+    aspect-ratio: 1;   
+}
+
+.github {
+    background-color: #e5e7eb;
+    font-weight: 500;
+}
+
+.gitlab  {
+    background-color: #6666c4;
+    color: white !important;
+    font-weight: 500;
+}
+
+/* LOGIN END */
+
+.grid-perks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
