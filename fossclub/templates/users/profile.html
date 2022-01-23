@@ -5,12 +5,12 @@
 <main class="flex main">
     <div class="flex flex-wrap horizontal-center main__container main__small-container">
         <div class="user-profile">
-            <img src="personpfp.jpg" alt="" class="user-pfp">
+            <img src="/media/{{user.avatar}}" alt="" class="user-pfp">
             <div class="heading heading--secondary text-center user-name">{{user.first_name}} {{user.last_name}}</div>
             <div class="heading heading--sub text-center user-username">@{{user.username}}</div>
         </div>
         
-        <hr class="horizontal-separator mar-20"/>
+        <hr class="horizontal-separator mar-5"/>
 
         <!-- TESTING -->
         <div class="container badge-container">
@@ -18,24 +18,11 @@
                 Badges
             </h1>
             <div class="flex flex-wrap vertical-center mt-10 container">
-                <div class="flex horizontal-center vertical-center br-5 badge">
-                    <img src="badge.svg" class="badge-image" />
+                {% for badge in user.unlocked_badges.all%}
+                <div class="flex horizontal-center vertical-center br-5 badge" title="{{ badge.name }}">
+                    <img src="/media/{{badge.image}}" class="badge-image" />
                 </div>
-                <div class="flex horizontal-center vertical-center br-5 badge">
-                    <img src="badge.svg" class="badge-image" />
-                </div>
-                <div class="flex horizontal-center vertical-center br-5 badge">
-                    <img src="badge.svg" class="badge-image" />
-                </div>
-                <div class="flex horizontal-center vertical-center br-5 badge">
-                    <img src="badge.svg" class="badge-image" />
-                </div>
-                <div class="flex horizontal-center vertical-center br-5 badge">
-                    <img src="badge.svg" class="badge-image" />
-                </div>
-                <div class="flex horizontal-center vertical-center br-5 badge">
-                    <img src="badge.svg" class="badge-image" />
-                </div>
+                {%endfor%}
             </div>
         </div>
         <!-- TESTING -->
@@ -63,17 +50,32 @@
                 <div class="flex horizontal-center w-100 h-20 container"><hr class="vertical-separator user-activity__connector" /></div>
                 <div class="w-100 text-center">&#x25CF;</div>
                 <div class="br-5 user-activity">
-                    Arveix claimed the perk <a href="#" class="bold underline">Microsoft January FOSS Giveaway.</a>
+                    {{user.username}} claimed the perk <a href="#" class="bold underline">Microsoft January FOSS Giveaway.</a>
                 </div>
 
                 <div class="w-100 text-center">&#x25CF;</div>
                 <div class="flex horizontal-center w-100 h-20 container"><hr class="vertical-separator user-activity__connector" /></div>
                 <div class="w-100 text-center">&#x25CF;</div>
                 <div class="br-5 user-activity">
-                    Arveix claimed the perk <a href="#" class="bold underline">Microsoft January FOSS Giveaway.</a>
+                    {{user.username}} unlocked the badge <a href="#" class="bold underline">Rockstar II.</a>
                 </div>
 
-                
+                <div class="w-100 text-center">&#x25CF;</div>
+                <div class="flex horizontal-center w-100 h-20 container"><hr class="vertical-separator user-activity__connector" /></div>
+                <div class="w-100 text-center">&#x25CF;</div>
+                <div class="container w-100 text-center bold">
+                    <span class="flex vertical-center horizontal-center pad-10 br-5 user-activity__date">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-10 user-activity__date-clock" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                        </svg>
+                        19-01-2022
+                    </span>
+                </div>
+                <div class="flex horizontal-center w-100 h-20 container"><hr class="vertical-separator user-activity__connector" /></div>
+                <div class="w-100 text-center">&#x25CF;</div>
+                <div class="br-5 user-activity">
+                    {{user.username}} claimed the perk <a href="#" class="bold underline">Amazon T-shirt Giveaway.</a>
+                </div>
                 
                 
             </div>

@@ -37,7 +37,7 @@
                 </h1>
                 <div class="flex flex-wrap vertical-center container">
                     {% for badge in perk.required_badges.all %}
-                        <div class="flex horizontal-center vertical-center ml-0 mr-10 br-5 badge">
+                        <div class="flex horizontal-center vertical-center ml-0 mr-10 br-5 badge" title="{{badge.name}}">
                             <img src="/media/{{ badge.image }}" class="badge-image" />
                         </div>
                     {% endfor %}
