@@ -16,22 +16,21 @@
         <!-- HEADER STARTS -->
         <header class="flex vertical-center bg-white header">
             <div class="container">
+                <a href="/">
                 <div class="logo-container">
                     <img src="{% static "assets/default-monochrome.svg" %}" class="logo" />
                 </div>
+            </a>
             </div>
             <div class="flex vertical-center container container__header-right">
                 <nav class="flex flex-wrap horizontal-center vertical-center navbar">
-                    <div class="flex vertical-center navbar__item">
-                        <a href="/perks/" >
+                    <a href="#" class="flex vertical-center br-5 navbar__item add-perk">Add a Perk</a>
+                    <a href="/perks/" class="flex vertical-center navbar__item">
                         Perks
-                        </a>
-                    </div>
-                    <div class="flex vertical-center navbar__item navbar__item--active">
-                        <a href="/perks/badges" >
+                    </a>
+                    <a href="/perks/badges" class="flex vertical-center navbar__item navbar__item--active">
                         Achievements
-                        </a>
-                    </div>
+                    </a>
                 </nav>
                 <hr class="vertical-separator header__vertical-separator" />
                 {% if user.is_authenticated %}

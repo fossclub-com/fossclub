@@ -11,7 +11,7 @@
             Goals
         </h1>
         {% for badge, progress in locked_badges %}
-        <div class="flex flex-wrap mb-10 br-5 goal">
+        <div class="flex flex-wrap mb-20 br-5 goal">
             <div class="flex vertical-center goal__info">
                 <div class="container">
                     <img src="/media/{{badge.image}}" class="badge-image goals__badge-image"></img>
@@ -21,7 +21,7 @@
                     <div class="goal__description">{{badge.short_description}}</div>
                 </div>
             </div>
-            <div class="goal__progress-count">{% if progress.progress %} {{ progress.progress }} {% else %} 0 {% endif %} / {{badge.max_progress}} {{ badge.unit }}</div>
+            <div class="mt-10 ml-10 goal__progress-count">{% if progress.progress %} {{ progress.progress }} {% else %} 0 {% endif %} / {{badge.max_progress}} {{ badge.unit }}</div>
             <div class="flex vertical-center w-100 mt-5 goal__progressbar-container">
                 {% comment %} <div class="mr-10 pad-2 goal__progressbar"></div> {% endcomment %}
                 <progress class="mr-10 pad-2 goal__progressbar" id="file" value="{{ progress.progress }}" max="{{badge.max_progress}}"> 
@@ -44,7 +44,7 @@
             </h1>
             <div class="flex flex-wrap vertical-center mt-10 container">
                 {% for badge in unlocked_badges %}
-                <div class="flex horizontal-center vertical-center pad-10 br-5 badge">
+                <div class="flex horizontal-center vertical-center ml-0 mr-10 pad-10 pl-0 br-5 achievement__badge" title="{{badge.name}}">
                     <img src="/media/{{ badge.image }}" class="badge-image" alt="{{ badge.name }}" />
                 </div>
                 {% endfor %}
@@ -56,6 +56,30 @@
 
 </main>
 
+<div id="badge_card" class="flex horizontal-center vertical-center hidden full-container">
+    <div class="br-5 pt-20 pb-0 bg-white card-container">
+        <img src="rockstar50.png" class="badge-image" alt="Perk image">
+        <div class="card-details">
+            <div class="mb-5 container">
+                <h3 class="mb-3 heading--secondary">
+                    Badge Name
+                </h3>
+                <div class="normal-text">
+                    Badge detail Lorem ipsum dolor, sit amet consectetur 
+                </div>
+            </div>
+            <div class="mt-20 container">
+                <h3 class="heading--secondary">You own this badge!</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleBadgeCard () {
+        document.getElementById("badge_card")
+    }
+</script>
 
 {% comment %} 
 
