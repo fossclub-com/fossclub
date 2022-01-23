@@ -51,6 +51,15 @@ def show_perk(request, perk_id):
     return render(request, "perks/show.html", context)
 
 
+@login_required
+def claim_perk(request, perk_id):
+    perk = get_object_or_404(Perk, id=perk_id)
+    user = request.user
+
+    if perk in user.perks_won:
+        context["message"] = ""
+
+
 class PerkCreateView(LoginRequiredMixin, CreateView):
     model = Perk
     fields = ["name", "short_description", "long_description", "image", "required_badges", "quantity"]
