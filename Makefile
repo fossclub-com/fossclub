@@ -36,3 +36,6 @@ shell:
 
 huey:
 	./venv/bin/python fossclub/manage.py run_huey
+
+run_huey_tasks:
+	./venv/bin/python fossclub/manage.py shell -c "from perks.tasks import check_all_badges; check_all_badges()"

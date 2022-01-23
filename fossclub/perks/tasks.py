@@ -4,6 +4,7 @@ from allauth.socialaccount.models import SocialAccount
 from huey.contrib.djhuey import periodic_task, task
 
 from .models import Badge, BadgeProgress
+from users.models import User
 
 
 logger = logging.getLogger(__name__)
@@ -70,6 +71,15 @@ def check_commits_badge(user):
             if bp.unlocked == False:
                 bp.progress = min(badge.max_progress, len(commits))
                 bp.save()
+
+
+def check_all_badges():
+    users = User.objects.all()
+
+    for user in users:
+        check_commits_badge(user)
+        check_followers_badge(user)
+        check_oauth_badge(user)
 
 
 def get_user_commits(username, repo, provider):
