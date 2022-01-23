@@ -34,6 +34,7 @@
                 </nav>
                 <hr class="vertical-separator header__vertical-separator" />
                 {% if user.is_authenticated %}
+                <a href="/account/profile/">
                 <div class="flex vertical-center header__profile">
                     <div class="headerUsername">
                         {{ user.first_name }} {{ user.last_name }}
@@ -46,6 +47,7 @@
                         {% endif %}
                     </div>
                 </div>
+                </a>
                 {% endif %}
             </div>
         </header>
