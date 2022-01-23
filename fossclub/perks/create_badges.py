@@ -13,6 +13,6 @@ badges = [
     {"name": "GitLab Signin", "image": "badges/gitlab_login.png", "short_description": "Have a GitLab account", "max_progress": 1, "unit": "GitLab OAuth"},
     {"name": "Tensorflow Contributor", "image": "badges/tensorflow_contributor.png", "short_description": "Have contributed to Tensorflow", "max_progress": 1, "unit": "commits in tensorflow/tensorflow"},
 ]
-
+Badge.objects.all().delete()
 for badge_args in badges:
   Badge.objects.get_or_create(**badge_args)
