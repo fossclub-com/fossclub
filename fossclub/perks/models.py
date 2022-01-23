@@ -31,6 +31,7 @@ class Perk(models.Model):
     name = models.CharField(max_length=100, help_text=_("A short catchy name for the perk"))
     short_description = models.CharField(max_length=255, help_text=_("A short description of the perk, what it offers"))
     long_description = models.TextField(help_text=_("Here you can go into detail about what the perk is about, why you are offering it, etc."), blank=True)
+    restricted_text = models.TextField(help_text=_("This is the restricted text that will appear after someone has claimed this perk. This can include details on next steps of how to claim the perk"))
     image = models.ImageField(upload_to="perks")
     status = models.CharField(max_length=2, choices=PerkStatus.choices, default=PerkStatus.ACTIVE, null=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
