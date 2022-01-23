@@ -15,6 +15,10 @@
 
 }
 
+body {
+    background-color: #F3F4F6;
+}
+
 /* COMMON CLASSES START */
 
 a {
@@ -48,12 +52,20 @@ img {
     width: 100%;
 }
 
+.h-20 {
+    height: 20px;
+}
+
 .mar-0 {
     margin: 0;
 }
 
 .mar-10 {
     margin: 10px;
+}
+
+.mar-20 {
+    margin: 20px;
 }
 
 .mt-20 {
@@ -84,6 +96,10 @@ img {
     margin-bottom: 15px;
 }
 
+.mb-20 {
+    margin-bottom: 20px;
+}
+
 .ml-5 {
     margin-left: 5px;
 }
@@ -104,8 +120,20 @@ img {
     border-radius: 5px;
 }
 
+.bg-white {
+    background-color: white;
+}
+
 .text-center {
     text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 .main {
@@ -120,7 +148,7 @@ img {
 }
 
 .heading--primary {
-    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
 .heading--secondary {
@@ -138,6 +166,11 @@ img {
     font-size: 0.9em;
 }
 
+.card-container {
+    max-width: 21em;
+    padding: 10px 0 10px 0;
+}
+
 .btn {
     display: block;
     margin: 0 auto 0 auto;
@@ -148,9 +181,21 @@ img {
     border-radius: 5px;
 }
 
-.vertical-separator {
+hr {
     border: none;
+}
+
+.horizontal-separator {
+    width: 90%;
+    border-bottom: 1px solid grey;
+}
+
+.vertical-separator {
     border-right: 1px solid grey;
+}
+
+.main__vertical-separator {
+    margin: 0 60px;
 }
 
 /* COMMON CLASSES END */
@@ -214,7 +259,7 @@ img {
 /* MAIN BODY (Achievements) STARTS */
 
 .main__container {
-    margin: 0 60px;
+    /* margin: 0 60px; */
 }
 
 .main__large-container {
@@ -227,12 +272,11 @@ img {
 
 .goal {
     padding: 10px;
-    background: linear-gradient(45deg, #ddd6fe
-    , #d8b4fe, #e879f9); /* temporary */
-}
-
-.goal__progress-count {
-    flex: 100%;
+    background: linear-gradient(45deg, #f8fafc, #f2f4f7, #eff0f1);
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 1px 1px 8px rgba(92, 89, 89, 0.336);
+    margin-bottom: 20px;
 }
 
 .goals__badge-image {
@@ -246,6 +290,10 @@ img {
 .goal__progressbar {
     width: 85%;
     height: 25px;
+}
+
+.goal__progress-count {
+    flex: 100%;
 }
 
 .badge {
@@ -262,8 +310,6 @@ img {
 /* PERK CARD STARTS */
 
 .perk-container {
-    max-width: 21em;
-    padding: 10px 0 10px 0;
     box-shadow: 1px 1px 10px rgba(90, 90, 90, 0.4);
     transition:  box-shadow 300ms;
 }
@@ -301,6 +347,12 @@ img {
 
 /* USER PROFILE START */
 
+/* TEMPORARY */
+.main__container {
+    /* border: 1px solid black; */
+}
+/* TEMPORARY */
+
 .user-pfp {
     width: 200px;
     aspect-ratio: 1;
@@ -308,3 +360,39 @@ img {
 }
 
 /* USER PROFILE END */
+
+
+/* USER ACTIVITY START */
+
+.user-activity__date {
+    width: 150px;
+    margin: auto;
+    background-color: rgba(0,184,92,0.1);
+    color: #00b85c;
+    border-bottom: 2px solid #4C1D95;
+}
+
+.user-activity__date-clock {
+    width: 20px;
+    height: 20px;
+}
+
+.user-activity__connector {
+    border-right: 3px solid #4C1D95;
+    z-index: -1;
+}
+
+.user-activity {
+    width: 690px;
+    /* Temporary */
+    background-color: rgba(255,116,116,0.1);
+    color: #ff7474;
+    /* Temporary */
+    padding: 40px;
+}
+
+.user-activity a {
+    color: inherit; /* Temporary */
+}
+
+/* USER ACTIVITY END */
