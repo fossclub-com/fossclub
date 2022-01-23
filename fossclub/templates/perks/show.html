@@ -53,12 +53,14 @@
        {{perk.long_description}}
     </div>
 
-    <div class="mt-20 perk-long-description">
-        <p>
-            <b>This text is only visible to those who have won this perk. This contains the next steps on claiming
-                the perk.</b>
-        </p>
-       {{perk.restricted_text}}
-    </div>
+    {% if user.is_authenticated and perk_won %}
+        <div class="mt-20 perk-long-description">
+            <p>
+                <b>This text is only visible to those who have won this perk. This contains the next steps on claiming
+                    the perk.</b>
+            </p>
+           {{perk.restricted_text}}
+        </div>
+    {% endif %}
 </main>
 {%endblock%}
