@@ -40,8 +40,8 @@
                         {{ user.first_name }} {{ user.last_name }}
                     </div>
                     <div class="container header__profile-image__container">
-                        {% if user.avatar != "default_avatar.jpg" %}
-                        <img src="{{ user.avatar }}" class="header__profile-image" />
+                        {% if user.avatar %}
+                        <img src="/media/{{ user.avatar }}" class="header__profile-image" />
                         {% else %}
                         <img src="{% static "assets/personpfp.jpg" %}" class="header__profile-image" />
                         {% endif %}
