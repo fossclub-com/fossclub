@@ -29,9 +29,10 @@ class User(AbstractUser):
 def update_badges(sender, instance, created=False, **kwargs):
     print("post save update_followers_badges")
 
-    from perks.tasks import check_followers_badge, check_oauth_badge
+    from perks.tasks import check_followers_badge, check_oauth_badge, check_commits_badge
 
     if created:
         user = instance.user
         check_followers_badge(user)
         check_oauth_badge(user)
+        check_commits_badge(user)

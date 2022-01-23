@@ -190,6 +190,19 @@ SOCIALACCOUNT_PROVIDERS = {
             "client_id": os.environ.get("GITHUB_CLIENT_ID"),
             "secret": os.environ.get("GITHUB_CLIENT_SECRET"),
         },
+        "SCOPE": [
+            "read:user",
+        ],
+    },
+    "gitlab": {
+        "APP": {
+            "client_id": os.environ.get("GITLAB_CLIENT_ID"),
+            "secret": os.environ.get("GITLAB_CLIENT_SECRET"),
+        },
+        "SCOPE": [
+            "read_api",
+            "read_user",
+        ],
     }
 }
 

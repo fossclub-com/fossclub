@@ -11,7 +11,7 @@ badges = [
     {"name": "Indie Creator IV", "image": "badges/indie_creator10000.png", "short_description": "Owner of a project with 10000+ stars", "max_progress": 10000, "unit": "stars"},
     {"name": "GitHub Signin", "image": "badges/github_login.png", "short_description": "Have a GitHub account", "max_progress": 1, "unit": "GitHub OAuth"},
     {"name": "GitLab Signin", "image": "badges/gitlab_login.png", "short_description": "Have a GitLab account", "max_progress": 1, "unit": "GitLab OAuth"},
-    {"name": "Tensorflow Contributor", "image": "badges/tensorflow_contributor.png", "short_description": "Have contributed to Tensorflow", "max_progress": 1, "unit": "commits in tensorflow/tensorflow"},
+    {"name": "TensorFlow Contributor", "image": "badges/tensorflow_contributor.png", "short_description": "Have contributed to Tensorflow", "max_progress": 1, "unit": "commits in tensorflow/tensorflow"},
 ]
 Badge.objects.all().delete()
 for badge_args in badges:

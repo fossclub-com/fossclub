@@ -11,7 +11,7 @@ class Badge(models.Model):
     short_description = models.CharField(max_length=100)
     max_progress = models.IntegerField(default=1, validators=[MinValueValidator(0)])
     image = models.ImageField(upload_to="badges/")
-    unit = models.CharField(max_length=30)
+    unit = models.CharField(max_length=100)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
